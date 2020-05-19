@@ -1,0 +1,6 @@
+This project is used to detect the latest versions realease of particular applications and download them, if available.
+
+The applications included are:
+	PostgreSQL
+	
+
