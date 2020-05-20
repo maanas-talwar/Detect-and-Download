@@ -1,6 +1,8 @@
-This project is used to detect the latest versions realease of particular applications and download them, if available.
+This project is used to detect the latest version realeases of particular applications and download them, if available.
 
 The applications included are:
 	PostgreSQL
-	
+	PHP
+
+There is a main driver python program that in turn invokes the required plugins to detect and download the versions for separate apllications.
 
