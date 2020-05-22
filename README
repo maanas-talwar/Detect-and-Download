@@ -1,8 +1,18 @@
-This project is used to detect the latest version realeases of particular applications and download them, if available.
+Detect and Download
+================
 
-The applications included are:
-	PostgreSQL
-	PHP
+## Introduction
+A python project to crawl the package websites, for instance [PostgreSQL](https://www.postgresql.org/), [php](https://www.php.net/), to check for new releases and download them if not locally present.
+-	For technical problems, please report to [Issues](https://github.com/divyanshu-talwar/AutoImpute/issues).
 
-There is a main driver python program that in turn invokes the required plugins to detect and download the versions for separate apllications.
 
+## Dependencies
+* For Python (3.7):
+    > beautifulsoup4.
+
+## Contents
+There is a main driver python program that in turn invokes the required plugins to detect and download the versions for separate apllications
+* `plugins/PostgreSQL/code.py` - <enter description>.
+
+## Execution
+* 
