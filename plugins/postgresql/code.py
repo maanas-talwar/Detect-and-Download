@@ -79,7 +79,7 @@ def download_release() :
 	downloaded_versions_read.close()
 
 if __name__ == '__main__':
-	print('***  Start Execution.  ***')
+	print('***  Start Execution  ***')
 	print('Date and Time : ' + str(datetime.datetime.now()))
 
 	with open('postgresql.json') as f:
@@ -98,4 +98,4 @@ if __name__ == '__main__':
 	download_release()
 
 	os.remove('latest_versions.txt')
-	print('***  End Execution.  ***')
+	print('***  End Execution  ***')

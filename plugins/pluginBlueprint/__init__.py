@@ -4,12 +4,4 @@
 
 '''
 
-import sys
-from pluginBlueprint import pluginBlueprint
-
-if __name__ == '__main__':
-    print('*****  Start Execution  *****')
-
-    print("pluginBlueprint imported successfully.")
-
-    print('*****  End Execution  *****')
+print('\n*****  pluginBlueprint imported successfully  *****\n')
