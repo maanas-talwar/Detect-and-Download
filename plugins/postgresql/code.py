@@ -83,9 +83,9 @@ if __name__ == '__main__':
 		data_json = json.load(f)
 
 	# url to detect the latest released versions
-	url_check_release = data_json['check_release']
+	url_check_release = data_json['urls']['check_release']
 	# url to download the latest released versions
-	url_download = data_json['download']
+	url_download = data_json['urls']['download']
 
 	# making a bs4 object to parse to the latest release versions
 	html_code = request.urlopen(url_check_release).read().decode('utf8')
