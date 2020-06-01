@@ -6,7 +6,7 @@
 
 import abc
 
-class abstractPlugin(ABC):
+class pluginBlueprint(ABC):
     @property
     def url_download:
     # variable to store the basic url(adding version required) for downloading
@@ -21,4 +21,3 @@ class abstractPlugin(ABC):
     def update_json(self):
     # function to update the json file for availability of new version
         pass
-    
