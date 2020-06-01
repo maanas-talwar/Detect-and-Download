@@ -4,20 +4,19 @@
 
 '''
 
-from abc import ABC
+from abc import ABC, abstractmethod
 
 class pluginBlueprint(ABC):
     @property
-    def url_download:
+    def url_download(self):
     # variable to store the basic url(adding version required) for downloading
-        raise NotImplementedError
-    def url_check_release:
-    # variable to store the url where the releases will be displayed
-        raise NotImplementedError
-
-    def check_which_released(self):
-    # function to check the latest releases from the website(url_check_release) and storing in a list
         pass
-    def update_json(self):
-    # function to update the json file for availability of new version
+
+    def url_check_release(self):
+    # variable to store the url where the releases will be displayed
+        pass
+
+    @abstractmethod
+    def check_which_released(self):
+    # function to check the latest releases from the website(url_check_release), store in a list and dump the data in json
         pass

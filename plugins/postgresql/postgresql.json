@@ -1,7 +1,4 @@
 {
-    "tool": "postgresql",
-    "urls": {
-        "check_release": "https://www.postgresql.org/",
-        "download": "https://ftp.postgresql.org/pub/source/v*/postgresql-*.tar.gz"
-    }
+    "tool": "postgresql"
+
 }
