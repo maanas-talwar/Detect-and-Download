@@ -1,15 +1,18 @@
 '''
 	Author : Maanas Talwar
-	Purpose : Plugin to parse the check release url and find any new releases. If new releases are present return the downloading links to setup.py and update the json for available downloads.
+	Purpose : Plugin to parse the check release url and find any new releases. If new releases are present update the json for available downloads.
 
 '''
 
 import sys
 import os
+import json
 import datetime
 from urllib import request
 from bs4 import BeautifulSoup
 
+sys.path.append('../')
+import pluginBlueprint as abstractPlugin
 
 def detect_releases(parse_tree) :
 	# to detect the name of latest released versions

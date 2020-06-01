@@ -4,7 +4,7 @@
 
 '''
 
-import abc
+from abc import ABC 
 
 class pluginBlueprint(ABC):
     @property
