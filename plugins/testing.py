@@ -10,6 +10,6 @@ if __name__ == '__main__':
     print('*****  Start Execution  *****')
 
     a = postgresql()
-    a.check_which_released()
+    a.update_json()
 
     print('*****  End Execution  *****')
