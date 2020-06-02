@@ -77,6 +77,8 @@ class postgresql(abstractPlugin.pluginBlueprint):
                     major_version_object = cur_data['majorVersions'][i]
 
                     if(major_version_object['majorVersion'] == major_version):
+                        isMajorPresent = 1
+                        isMinorPresent = 0
                         new_data = {
                             "minorVersion": minor_version,
                             # "releaseDate": "2020-02-13",
@@ -85,10 +87,17 @@ class postgresql(abstractPlugin.pluginBlueprint):
                             # "colourCode": "GREEN",
                             # "remark": "Recommended Version"
                         }
-                        # inserting data in major_version_object -> minorVersions
-                        # add a check if minor version present
-                        cur_data['majorVersions'][i]['minorVersions'].insert(0, new_data)
-                        isMajorPresent = 1
+                        # check if minor version present just skip to the next version in new_releases
+                        for j in range(len(major_version_object['minorVersions'])):
+                            if(major_version_object['minorVersions'][j]['minorVersion'] == minor_version):
+                                isMinorPresent = 1
+                                break
+
+                        # inserting data in major_version_object -> minorVersions only if the minot version is not present
+                        if(isMinorPresent == 0):
+                            cur_data['majorVersions'][i]['minorVersions'].insert(0, new_data)
+
+                        break
 
                 # major version is absent(make a separate major versions list element)
                 if(isMajorPresent == 0):
@@ -104,5 +113,5 @@ class postgresql(abstractPlugin.pluginBlueprint):
                     cur_data['majorVersions'].insert(0, new_data)
                 # taking file pointer to start as load gets it to end
                 file.seek(0)
-                # updsating json for each iteration i.e. for each latest released version
+                # updating json for each iteration i.e. for each latest released version
                 json.dump(cur_data, file, indent = 4)

@@ -20,12 +20,40 @@
     ],
     "digitalNicId": "Database Server",
     "repoStatus": "TRUE",
-    "majorVersions": [{
+    "majorVersions": [
+        {
+            "majorVersion": "9.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "9.5.22",
+                    "isNew": "TRUE"
+                },
+                {
+                    "minorVersion": "9.6.18",
+                    "isNew": "TRUE"
+                }
+            ]
+        },
+        {
+            "majorVersion": "10.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "10.13",
+                    "isNew": "TRUE"
+                }
+            ]
+        },
+        {
             "majorVersion": "12.X",
-            "minorVersions": [{
+            "minorVersions": [
+                {
+                    "minorVersion": "12.3",
+                    "isNew": "TRUE"
+                },
+                {
                     "minorVersion": "12.2",
                     "releaseDate": "2020-02-13",
-					"isNew": "TRUE",
+                    "isNew": "TRUE",
                     "endOfUse": "FALSE",
                     "colourCode": "GREEN",
                     "remark": "Recommended Version"
@@ -33,7 +61,7 @@
                 {
                     "minorVersion": "12.1",
                     "releaseDate": "2019-11-14",
-					"isNew": "FALSE",
+                    "isNew": "FALSE",
                     "endOfUse": "FALSE",
                     "colourCode": "AMBER",
                     "remark": "Advisable to Update to Newer Version"
@@ -42,10 +70,15 @@
         },
         {
             "majorVersion": "11.X",
-            "minorVersions": [{
+            "minorVersions": [
+                {
+                    "minorVersion": "11.8",
+                    "isNew": "TRUE"
+                },
+                {
                     "minorVersion": "11.7",
                     "releaseDate": "2020-02-13",
-					"isNew": "TRUE",
+                    "isNew": "TRUE",
                     "endOfUse": "FALSE",
                     "colourCode": "AMBER",
                     "remark": "Advisable to Update to Newer Version"
@@ -53,7 +86,7 @@
                 {
                     "minorVersion": "11.6",
                     "releaseDate": "2019-11-14",
-					"isNew": "FALSE",
+                    "isNew": "FALSE",
                     "endOfUse": "FALSE",
                     "colourCode": "AMBER",
                     "remark": "Advisable to Update to Newer Version"
