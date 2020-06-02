@@ -4,7 +4,6 @@
 
 '''
 
-import pluginBlueprint.pluginBlueprint as abstractPlugin
 import sys
 import os
 import json
@@ -12,8 +11,7 @@ import datetime
 from urllib import request
 from bs4 import BeautifulSoup
 
-sys.path.append('../')
-
+import plugins.pluginBlueprint.pluginBlueprint as abstractPlugin
 
 class postgresql(abstractPlugin.pluginBlueprint):
 
@@ -59,6 +57,8 @@ class postgresql(abstractPlugin.pluginBlueprint):
     def update_json(self):
         # function that recieves the list of released versions from check_which_released and updates the json file
 
+        # path to the current directory
+        cur_path = os.path.dirname(__file__)
         # list of released versions
         new_releases = self.check_which_released()
 
@@ -67,7 +67,8 @@ class postgresql(abstractPlugin.pluginBlueprint):
             major_version = new_releases[i].split('.', 1)[0] + '.X'
             minor_version = new_releases[i]
 
-            with open("postgresql.json", 'r+') as file:
+            # supplying the path to the json file
+            with open(cur_path + "/data/postgresql.json", 'r+') as file:
                 cur_data = json.load(file)
                 # if the major version is already present add data to the minor versions list else make a separate major versions list element
 

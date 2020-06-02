@@ -1,12 +1,6 @@
 '''
         Author: Maanas Talwar
-        Purpose: __init__ file for the whole detect and download package
+        Purpose: __init__ file for the package containing all the plugins.
 
 '''
-
-# 
-# if __name__ == '__main__':
-#     print('*****  Start Execution  *****')
-#
-#
-#     print('*****  End Execution  *****')
+print('\n***** All plugins package imported successfully  *****')

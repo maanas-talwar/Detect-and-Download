@@ -4,4 +4,4 @@
 
 '''
 
-print('\n*****  postgresql plugin imported successfully  *****\n')
+print('\n*****  postgresql plugin imported successfully  *****')

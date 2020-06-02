@@ -1,8 +1,19 @@
 '''
         Author: Maanas Talwar
-        Purpose: The main driver program for the detextion of new releases and downloading them.
+        Purpose: The main driver program for the detection of new releases and downloading them.
 
 '''
+
+from plugins.postgresql.code import postgresql
+
+if __name__ == '__main__':
+    print('\n*****  Start Execution  *****')
+
+    # testing the functioning of plugins
+    a = postgresql()
+    a.update_json()
+
+    print('*****  End Execution  *****\n')
 
 
 # if __name__ == '__main__':

@@ -4,4 +4,4 @@
 
 '''
 
-print('\n*****  pluginBlueprint imported successfully  *****\n')
+print('\n*****  pluginBlueprint imported successfully  *****')
