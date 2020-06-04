@@ -18,7 +18,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
     # variable to store the url where the releases will be displayed
     url_check_release = "https://www.postgresql.org/"
 
-    # variable to store the basic url(adding version required) for downloading
+    # variable to store the basic url(adding version required in place of *) for downloading
     url_download = "https://ftp.postgresql.org/pub/source/v*/postgresql-*.tar.gz"
 
     def check_which_released(self):
@@ -57,7 +57,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
     def update_json(self):
         # function that recieves the list of released versions from check_which_released and updates the json file
 
-        # path to the current directory
+        # path to the current file's directory
         cur_path = os.path.dirname(__file__)
         # list of released versions
         new_releases = self.check_which_released()
@@ -83,7 +83,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
                         new_data = {
                             "minorVersion": minor_version,
                             # "releaseDate": "2020-02-13",
-                            "isNew": "TRUE",
+                            "isDownloaded": "FALSE",
                             # "endOfUse": "FALSE",
                             # "colourCode": "GREEN",
                             # "remark": "Recommended Version"
@@ -106,12 +106,14 @@ class postgresql(abstractPlugin.pluginBlueprint):
                                 "minorVersions": [{
                                     "minorVersion": minor_version,
                                     # "releaseDate": "2020-02-13",
-                                    "isNew": "TRUE",
+                                    "isDownloaded": "FALSE",
                                     # "endOfUse": "FALSE",
                                     # "colourCode": "GREEN",
                                     # "remark": "Recommended Version"
                                 },]}
                     cur_data['majorVersions'].insert(0, new_data)
+                # clear the contents before writing
+                file.truncate(0)
                 # taking file pointer to start as load gets it to end
                 file.seek(0)
                 # updating json for each iteration i.e. for each latest released version

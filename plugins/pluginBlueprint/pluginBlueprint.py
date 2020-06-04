@@ -25,5 +25,5 @@ class pluginBlueprint(ABC):
 
     @abstractmethod
     def update_json(self):
-    # function to update the json file for availability of new version
+    # function to update the JSON file for availability of new version
         pass
