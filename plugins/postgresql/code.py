@@ -25,8 +25,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
         # to detect the name of latest released versions and return the list to update_json
 
         # making a bs4 object to parse to the latest release versions
-        html_code = request.urlopen(
-            self.url_check_release).read().decode('utf8')
+        html_code = request.urlopen(self.url_check_release).read().decode('utf8')
         parse_tree = BeautifulSoup(html_code, 'html.parser')
 
         # finding the column and then list with version data
@@ -90,13 +89,14 @@ class postgresql(abstractPlugin.pluginBlueprint):
                         }
                         # check if minor version present just skip to the next version in new_releases
                         for j in range(len(major_version_object['minorVersions'])):
-                            if(major_version_object['minorVersions'][j]['minorVersion'] == minor_version):
+                            minor_version_object = major_version_object['minorVersions'][j]
+                            if(minor_version_object['minorVersion'] == minor_version):
                                 isMinorPresent = 1
                                 break
 
                         # inserting data in major_version_object -> minorVersions only if the minot version is not present
                         if(isMinorPresent == 0):
-                            cur_data['majorVersions'][i]['minorVersions'].insert(0, new_data)
+                            major_version_object['minorVersions'].insert(0, new_data)
 
                         break
 
@@ -126,6 +126,6 @@ class postgresql(abstractPlugin.pluginBlueprint):
         # path to the current file's directory
         cur_path = os.path.dirname(__file__)
         # dictionary to contain data to be returned
-        plugin_data = {'url_download': "https://ftp.postgresql.org/pub/source/v*/postgresql-*.tar.gz", 'path_to_plugin_data': cur_path + '/data'}
+        plugin_data = {'url_download': self.url_download, 'path_to_plugin_data': cur_path + '/data'}
 
         return plugin_data
