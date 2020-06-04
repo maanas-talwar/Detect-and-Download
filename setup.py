@@ -9,19 +9,11 @@ import os
 import json
 from urllib import request
 
-
-# if __name__ == '__main__':
-#     print('\n*****  Start Execution  *****')
-#
-#     # testing the functioning of plugins
-#     a = postgresql()
-#     a.update_json()
-#
-#     print('*****  End Execution  *****\n')
-
-def download_releases(abstract_download_url, path_to_plugin_data):
+def download_releases(plugin_data):
     # function to download the latest releases by reading data from the JSON
 
+    abstract_download_url = plugin_data['url_download']
+    path_to_plugin_data = plugin_data['path_to_plugin_data']
     # supplying the path to the json file
     with open(path_to_plugin_data + "/postgresql.json", 'r+') as file:
         cur_data = json.load(file)
@@ -56,8 +48,9 @@ def download_releases(abstract_download_url, path_to_plugin_data):
 
 if __name__ == '__main__':
     print('*****  Start Execution  *****')
-    # path to current working directory
-    cur_path = os.getcwd()
-    download_releases("https://ftp.postgresql.org/pub/source/v*/postgresql-*.tar.gz", cur_path + "/plugins/postgresql/data")
+
+    a = postgresql()
+    plugin_data = a.setup_call()
+    download_releases(plugin_data)
 
     print('*****  End Execution  *****')

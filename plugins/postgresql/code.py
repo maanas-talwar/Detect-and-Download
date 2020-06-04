@@ -118,3 +118,14 @@ class postgresql(abstractPlugin.pluginBlueprint):
                 file.seek(0)
                 # updating json for each iteration i.e. for each latest released version
                 json.dump(cur_data, file, indent = 4)
+
+    def setup_call(self):
+        # function to invoke other functions and return the path and abstract_download_url to driver program
+
+        self.update_json()
+        # path to the current file's directory
+        cur_path = os.path.dirname(__file__)
+        # dictionary to contain data to be returned
+        plugin_data = {'url_download': "https://ftp.postgresql.org/pub/source/v*/postgresql-*.tar.gz", 'path_to_plugin_data': cur_path + '/data'}
+
+        return plugin_data

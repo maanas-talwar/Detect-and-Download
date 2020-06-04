@@ -27,3 +27,8 @@ class pluginBlueprint(ABC):
     def update_json(self):
     # function to update the JSON file for availability of new version
         pass
+
+    @abstractmethod
+    def setup_call(self):
+    # function to invoke other functions and return the path and abstract_download_url to driver program
+        pass

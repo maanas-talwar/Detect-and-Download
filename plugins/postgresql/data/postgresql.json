@@ -22,8 +22,34 @@
     "repoStatus": "TRUE",
     "majorVersions": [
         {
+            "majorVersion": "9.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "9.5.22",
+                    "isDownloaded": "TRUE"
+                },
+                {
+                    "minorVersion": "9.6.18",
+                    "isDownloaded": "TRUE"
+                }
+            ]
+        },
+        {
+            "majorVersion": "10.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "10.13",
+                    "isDownloaded": "TRUE"
+                }
+            ]
+        },
+        {
             "majorVersion": "12.X",
             "minorVersions": [
+                {
+                    "minorVersion": "12.3",
+                    "isDownloaded": "TRUE"
+                },
                 {
                     "minorVersion": "12.2",
                     "releaseDate": "2020-02-13",
@@ -45,6 +71,10 @@
         {
             "majorVersion": "11.X",
             "minorVersions": [
+                {
+                    "minorVersion": "11.8",
+                    "isDownloaded": "TRUE"
+                },
                 {
                     "minorVersion": "11.7",
                     "releaseDate": "2020-02-13",
