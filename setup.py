@@ -4,7 +4,7 @@
 
 '''
 
-from plugins.postgresql.code import postgresql
+from plugins.php.code import php
 import os
 import json
 from urllib import request
@@ -55,8 +55,8 @@ if __name__ == '__main__':
     print('*****  Start Execution  *****')
 
     # object of class
-    a = postgresql()
-    plugin_data = a.setup_call()
-    download_releases(plugin_data)
+    a = php()
+    plugin_data = a.check_which_released()
+    # download_releases(plugin_data)
 
     print('*****  End Execution  *****')

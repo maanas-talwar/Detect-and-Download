@@ -13,13 +13,13 @@ from bs4 import BeautifulSoup
 
 import plugins.pluginBlueprint.pluginBlueprint as abstractPlugin
 
-class postgresql(abstractPlugin.pluginBlueprint):
+class php(abstractPlugin.pluginBlueprint):
 
     # variable to store the url where the releases will be displayed
-    url_check_release = "https://www.postgresql.org/"
+    url_check_release = "https://www.php.net/downloads"
 
     # variable to store the basic url(adding version required in place of *) for downloading
-    url_download = "https://ftp.postgresql.org/pub/source/v*/postgresql-*.tar.gz"
+    url_download = "https://www.php.net/distributions/php-*.tar.gz"
 
     def check_which_released(self):
         # to detect the name of latest released versions and return the list to update_json
@@ -28,29 +28,30 @@ class postgresql(abstractPlugin.pluginBlueprint):
         html_code = request.urlopen(self.url_check_release).read().decode('utf8')
         parse_tree = BeautifulSoup(html_code, 'html.parser')
 
-        # finding the column and then list with version data
-        all_cols = list(parse_tree.find_all(class_='col-lg-6 feature'))
-        reqd_col = all_cols[0]
-        for i in range(len(all_cols)):
-            if(all_cols[i].find(text="Latest Releases")):
-                reqd_col = all_cols[i]
+        # class objects newstitle contain version data
+        all_content_boxes = list(parse_tree.find_all(class_='content-box'))
 
-        # list for storing the html code for list items of unordered list
-        versions_ul = list(reqd_col.find("ul"))
         # list to store the data to store in json
         released_versions = []
 
         # updated the list to store in json
-        for i in range(len(versions_ul)):
-            # returns the text with the strong tag
-            cur_version = str(versions_ul[i].find("strong"))
-            cur_version = cur_version[8:]								# removed opening strong tag
-            # removed closing strong tag
-            cur_version = cur_version.split("<", 1)[0]
-            # cur_version is now only the text of version
-            if(cur_version != ""):
-                # since "" is returned for \n(removed strong therfore empty string)
-                released_versions.append(cur_version)
+        for i in range(len(all_content_boxes)):
+            # downloads available in different types(tar.gz required)
+            cur_version_all_types = all_content_boxes[i].find_all('a')
+
+            # cur_version traverses through all types(tar.gz, tar.bz2 ...) of versions
+            for cur_version in cur_version_all_types:
+
+                # taking only tar.gz files
+                if(cur_version.text.endswith('tar.gz')):
+                    # required_version takes only tar.gz versions
+
+                    # removing starting php string
+                    required_version = cur_version.text.split('-', 1)[1]
+                    # removing tar.gz extension
+                    required_version = required_version[:-7]
+                    released_versions.append(required_version)
+
         return released_versions
 
     def update_json(self):
