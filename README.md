@@ -19,6 +19,12 @@ A python project to crawl the package websites, for instance [PostgreSQL](https:
 │   ├── pluginBlueprint
 │   │   ├── __init__.py
 │   │   └── pluginBlueprint.py
+│   ├── php
+│   │   ├── code.py
+│   │   ├── data
+│   │   │   ├── downloads
+│   │   │   └── php.json
+│   │   └── __init__.py
 │   └── postgresql
 │       ├── code.py
 │       ├── data
@@ -27,6 +33,7 @@ A python project to crawl the package websites, for instance [PostgreSQL](https:
 │       └── __init__.py
 ├── README.md
 └── setup.py
+
 ```
 
 <!--- ##Contents --->
