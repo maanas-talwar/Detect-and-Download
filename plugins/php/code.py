@@ -64,11 +64,14 @@ class php(abstractPlugin.pluginBlueprint):
 
         # traversing over new_releases
         for i in range(len(new_releases)):
-            major_version = new_releases[i].split('.', 1)[0] + '.X'
+            # spliting at second '.' for major version as reqiured in json
+            temp = new_releases[i].split('.')
+            major_version = '.'.join(temp[:2]) + '.X'
+
             minor_version = new_releases[i]
 
             # supplying the path to the json file
-            with open(cur_path + "/data/postgresql.json", 'r+') as file:
+            with open(cur_path + "/data/php.json", 'r+') as file:
                 cur_data = json.load(file)
                 # if the major version is already present add data to the minor versions list else make a separate major versions list element
 

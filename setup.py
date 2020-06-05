@@ -17,7 +17,7 @@ def download_releases(plugin_data):
     path_to_plugin_data = plugin_data['path_to_plugin_data']
 
     # supplying the path to the json file
-    with open(path_to_plugin_data + "/postgresql.json", 'r+') as file:
+    with open(path_to_plugin_data + "/php.json", 'r+') as file:
         cur_data = json.load(file)
 
         # traverse the major versions list
@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     # object of class
     a = php()
-    plugin_data = a.check_which_released()
-    # download_releases(plugin_data)
+    plugin_data = a.setup_call()
+    download_releases(plugin_data)
 
     print('*****  End Execution  *****')
