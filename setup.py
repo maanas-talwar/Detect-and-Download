@@ -4,9 +4,10 @@
 
 '''
 
-from plugins.php.code import php
+# import plugins
 import os
 import json
+import importlib
 from urllib import request
 
 def download_releases(plugin_data):
@@ -54,9 +55,25 @@ def download_releases(plugin_data):
 if __name__ == '__main__':
     print('*****  Start Execution  *****')
 
-    # object of class
-    a = php()
-    plugin_data = a.setup_call()
-    download_releases(plugin_data)
+    # list of all the files in plugins directory
+    all_files = os.listdir("./plugins/")
+
+    # list of all the plugins
+    all_plugins = []
+
+    for name in all_files:
+        if(name.endswith('_plugin')):
+            # get only the name of plugin without "_plugin"
+            all_plugins.append(name[:-7])
+
+    for module in all_plugins:
+        # name of the plugin directory
+        dir_name = module + '_plugin'
+        # importing the code.py module
+        cur_module = importlib.import_module("plugins." + dir_name + ".code")
+        # using getattr to get the class from code.py i.e. cur_module else can't instantiate using string
+        class_name = getattr(cur_module, module)
+        a = class_name()
+        print(a.check_which_released())
 
     print('*****  End Execution  *****')
