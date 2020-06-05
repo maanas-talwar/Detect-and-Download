@@ -25,11 +25,11 @@
             "majorVersion": "9.X",
             "minorVersions": [
                 {
-                    "minorVersion": "9.5.22",
+                    "minorVersion": "9.6.18",
                     "isDownloaded": "TRUE"
                 },
                 {
-                    "minorVersion": "9.6.18",
+                    "minorVersion": "9.5.22",
                     "isDownloaded": "TRUE"
                 }
             ]

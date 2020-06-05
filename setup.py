@@ -1,16 +1,15 @@
 '''
         Author: Maanas Talwar
-        Purpose: The main driver program for the calling the plugins for the data i.e. abstract download url and the path where the downloads should reside. This program is also responsible for downloading the locally absent versions.
+        Purpose: The main driver program for the calling the plugins for the data i.e. abstract download url and the path where the downloads should reside. This program imports the available plugins at runtime and downloads the locally absent versions for each plugin.
 
 '''
 
-# import plugins
 import os
 import json
 import importlib
 from urllib import request
 
-def download_releases(plugin_data):
+def download_releases(plugin_data, plugin_name):
 # function to download the latest releases by reading data from the JSON
 
     # data for the plugin
@@ -18,7 +17,7 @@ def download_releases(plugin_data):
     path_to_plugin_data = plugin_data['path_to_plugin_data']
 
     # supplying the path to the json file
-    with open(path_to_plugin_data + "/php.json", 'r+') as file:
+    with open(path_to_plugin_data + "/" + plugin_name + ".json", 'r+') as file:
         cur_data = json.load(file)
 
         # traverse the major versions list
@@ -74,6 +73,9 @@ if __name__ == '__main__':
         # using getattr to get the class from code.py i.e. cur_module else can't instantiate using string
         class_name = getattr(cur_module, module)
         a = class_name()
-        print(a.check_which_released())
+        # recieving the plugin data from the plugin call
+        plugin_data = a.setup_call()
+        # passing the arguments to download the releases
+        download_releases(plugin_data, module)
 
     print('*****  End Execution  *****')
