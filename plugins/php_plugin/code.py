@@ -33,26 +33,42 @@ class php(abstractPlugin.pluginBlueprint):
 
         # list to store the data to store in json
         released_versions = []
+        # list to store the release date to store in json
+        released_dates = []
 
         # updated the list to store in json
         for i in range(len(all_content_boxes)):
             # downloads available in different types(tar.gz required)
             cur_version_all_types = all_content_boxes[i].find_all('a')
-
+            # storing dates for all formats of current version
+            cur_version_all_types_dates = all_content_boxes[i].find_all('span')
+            # removing unwanted stuff not relating to dates(odd indexed stuff)
+            del cur_version_all_types_dates[1::2]
+            # print(cur_version_all_types_dates, "\n")
+            
+            j = 0
             # cur_version traverses through all types(tar.gz, tar.bz2 ...) of versions
             for cur_version in cur_version_all_types:
-
+                
                 # taking only tar.gz files
                 if(cur_version.text.endswith('tar.gz')):
                     # required_version takes only tar.gz versions
-
+                    
                     # removing starting php string
                     required_version = cur_version.text.split('-', 1)[1]
                     # removing tar.gz extension
                     required_version = required_version[:-7]
+                    
+                    # storing release date for current version
+                    date = cur_version_all_types_dates[j].text
+                    # adding release date to list
+                    released_dates.append(date)
+                    # adding released version to list
                     released_versions.append(required_version)
-
-        return released_versions
+                    
+                j+=1
+        
+        return released_versions,released_dates
 
     def update_json(self):
         # function that recieves the list of released versions from check_which_released and updates the json file
@@ -60,14 +76,11 @@ class php(abstractPlugin.pluginBlueprint):
         # path to the current file's directory
         cur_path = os.path.dirname(__file__)
         # list of released versions
-        new_releases = self.check_which_released()
+        new_releases, released_dates = self.check_which_released()
 
         # traversing over new_releases
         for i in range(len(new_releases)):
-            # spliting at second '.' for major version as reqiured in json
-            temp = new_releases[i].split('.')
-            major_version = '.'.join(temp[:2]) + '.X'
-
+            major_version = new_releases[i].split('.', 1)[0] + '.X'
             minor_version = new_releases[i]
 
             # supplying the path to the json file
@@ -85,7 +98,7 @@ class php(abstractPlugin.pluginBlueprint):
                         isMinorPresent = 0
                         new_data = {
                             "minorVersion": minor_version,
-                            # "releaseDate": "2020-02-13",
+                            "releaseDate": released_dates[i],
                             "isDownloaded": "FALSE",
                             # "endOfUse": "FALSE",
                             # "colourCode": "GREEN",
@@ -109,7 +122,7 @@ class php(abstractPlugin.pluginBlueprint):
                     new_data = {"majorVersion": major_version,
                                 "minorVersions": [{
                                     "minorVersion": minor_version,
-                                    # "releaseDate": "2020-02-13",
+                                    "releaseDate": released_dates[i],
                                     "isDownloaded": "FALSE",
                                     # "endOfUse": "FALSE",
                                     # "colourCode": "GREEN",

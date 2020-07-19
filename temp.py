@@ -3,8 +3,8 @@
         Purpose: Temporary file to test scrapping
 '''
 
-from plugins.postgresql_plugin.code import postgresql
+from plugins.php_plugin.code import php
 
 if __name__ == '__main__':
-    a = postgresql()
+    a = php()
     a.check_which_released()
