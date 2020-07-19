@@ -39,19 +39,27 @@ class postgresql(abstractPlugin.pluginBlueprint):
         versions_ul = list(reqd_col.find("ul"))
         # list to store the data to store in json
         released_versions = []
+        # list to store the release date to store in json
+        released_dates = []
 
         # updated the list to store in json
         for i in range(len(versions_ul)):
             # returns the text with the strong tag
             cur_version = str(versions_ul[i].find("strong"))
-            cur_version = cur_version[8:]								# removed opening strong tag
+            # removed opening strong tag
+            cur_version = cur_version[8:]
             # removed closing strong tag
             cur_version = cur_version.split("<", 1)[0]
             # cur_version is now only the text of version
             if(cur_version != ""):
                 # since "" is returned for \n(removed strong therfore empty string)
+                # storing the release date of current version 
+                date = str(versions_ul[i]).split('·')[1].strip()
+                # adding released version to list
                 released_versions.append(cur_version)
-        return released_versions
+                # adding release date to list
+                released_dates.append(date)
+        return released_versions, released_dates
 
     def update_json(self):
         # function that recieves the list of released versions from check_which_released and updates the json file
@@ -59,7 +67,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
         # path to the current file's directory
         cur_path = os.path.dirname(__file__)
         # list of released versions
-        new_releases = self.check_which_released()
+        new_releases, released_dates = self.check_which_released()
 
         # traversing over new_releases
         for i in range(len(new_releases)):
@@ -81,7 +89,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
                         isMinorPresent = 0
                         new_data = {
                             "minorVersion": minor_version,
-                            # "releaseDate": "2020-02-13",
+                            "releaseDate": released_dates[i],
                             "isDownloaded": "FALSE",
                             # "endOfUse": "FALSE",
                             # "colourCode": "GREEN",
@@ -105,7 +113,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
                     new_data = {"majorVersion": major_version,
                                 "minorVersions": [{
                                     "minorVersion": minor_version,
-                                    # "releaseDate": "2020-02-13",
+                                    "releaseDate": released_dates[i],
                                     "isDownloaded": "FALSE",
                                     # "endOfUse": "FALSE",
                                     # "colourCode": "GREEN",

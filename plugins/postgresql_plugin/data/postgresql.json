@@ -25,11 +25,13 @@
             "majorVersion": "9.X",
             "minorVersions": [
                 {
-                    "minorVersion": "9.6.18",
+                    "minorVersion": "9.5.22",
+                    "releaseDate": "2020-05-14",
                     "isDownloaded": "TRUE"
                 },
                 {
-                    "minorVersion": "9.5.22",
+                    "minorVersion": "9.6.18",
+                    "releaseDate": "2020-05-14",
                     "isDownloaded": "TRUE"
                 }
             ]
@@ -39,6 +41,7 @@
             "minorVersions": [
                 {
                     "minorVersion": "10.13",
+                    "releaseDate": "2020-05-14",
                     "isDownloaded": "TRUE"
                 }
             ]
@@ -48,6 +51,7 @@
             "minorVersions": [
                 {
                     "minorVersion": "12.3",
+                    "releaseDate": "2020-05-14",
                     "isDownloaded": "TRUE"
                 },
                 {
@@ -73,6 +77,7 @@
             "minorVersions": [
                 {
                     "minorVersion": "11.8",
+                    "releaseDate": "2020-05-14",
                     "isDownloaded": "TRUE"
                 },
                 {

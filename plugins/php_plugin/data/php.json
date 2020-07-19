@@ -25,6 +25,10 @@
             "majorVersion": "7.2.X",
             "minorVersions": [
                 {
+                    "minorVersion": "7.2.32",
+                    "isDownloaded": "TRUE"
+                },
+                {
                     "minorVersion": "7.2.31",
                     "isDownloaded": "TRUE"
                 }
@@ -48,6 +52,10 @@
                 ]
             },
             "minorVersions": [
+                {
+                    "minorVersion": "7.4.8",
+                    "isDownloaded": "TRUE"
+                },
                 {
                     "minorVersion": "7.4.6",
                     "isDownloaded": "TRUE"
@@ -92,6 +100,10 @@
                 ]
             },
             "minorVersions": [
+                {
+                    "minorVersion": "7.3.20",
+                    "isDownloaded": "TRUE"
+                },
                 {
                     "minorVersion": "7.3.18",
                     "isDownloaded": "TRUE"
