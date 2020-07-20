@@ -3,8 +3,8 @@
         Purpose: Temporary file to test scrapping
 '''
 
-from plugins.php_plugin.code import php
+from plugins.MariaDB_plugin.code import MariaDB
 
 if __name__ == '__main__':
-    a = php()
+    a = MariaDB()
     a.check_which_released()

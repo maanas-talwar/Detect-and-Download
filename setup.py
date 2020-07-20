@@ -33,7 +33,12 @@ def download_releases(plugin_data, plugin_name):
 
                     # converting abstract_download_url to actual_download_url(with version number)
                     actual_download_url = abstract_download_url.replace('*', minor_version_object['minorVersion'])
-                    filename = actual_download_url.split('/')[-1]
+                    # since in some cases last part is not filename
+                    break_url = actual_download_url.split('/')
+                    filename = str([name for name in break_url if 'tar.gz' in name])
+                    # remove starting and end [' and ']
+                    filename = filename[2:]
+                    filename = filename[:-2]
                     print("Downloading to disk: " + filename)
                     data_on_url = request.urlopen(actual_download_url)
                     # downloading the file
