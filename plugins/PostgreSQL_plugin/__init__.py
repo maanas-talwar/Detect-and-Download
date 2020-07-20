@@ -1,7 +1,7 @@
 '''
         Author: Maanas Talwar
-        Purpose: __init__.py for the postgreSQL subpackage.
+        Purpose: __init__.py for the PostgreSQL subpackage.
 
 '''
 
-print('\n*****  postgresql plugin imported successfully  *****')
+print('\n*****  PostgreSQl plugin imported successfully  *****')

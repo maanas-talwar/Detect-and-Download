@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 import plugins.pluginBlueprint.pluginBlueprint as abstractPlugin
 
-class php(abstractPlugin.pluginBlueprint):
+class PHP(abstractPlugin.pluginBlueprint):
 
     # variable to store the url where the releases will be displayed
     url_check_release = "https://www.php.net/downloads"
@@ -84,7 +84,7 @@ class php(abstractPlugin.pluginBlueprint):
             minor_version = new_releases[i]
 
             # supplying the path to the json file
-            with open(cur_path + "/data/php.json", 'r+') as file:
+            with open(cur_path + "/data/PHP.json", 'r+') as file:
                 cur_data = json.load(file)
                 # if the major version is already present add data to the minor versions list else make a separate major versions list element
 
