@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 import plugins.pluginBlueprint.pluginBlueprint as abstractPlugin
 
-class postgresql(abstractPlugin.pluginBlueprint):
+class PostgreSQL(abstractPlugin.pluginBlueprint):
 
     # variable to store the url where the releases will be displayed
     url_check_release = "https://www.postgresql.org/"
@@ -75,7 +75,7 @@ class postgresql(abstractPlugin.pluginBlueprint):
             minor_version = new_releases[i]
 
             # supplying the path to the json file
-            with open(cur_path + "/data/postgresql.json", 'r+') as file:
+            with open(cur_path + "/data/PostgreSQL.json", 'r+') as file:
                 cur_data = json.load(file)
                 # if the major version is already present add data to the minor versions list else make a separate major versions list element
 
