@@ -16,27 +16,47 @@ A python project to crawl the package websites, for instance [PostgreSQL](https:
 .
 ├── plugins
 │   ├── __init__.py
-│   ├── pluginBlueprint
-│   │   ├── __init__.py
-│   │   └── pluginBlueprint.py
-│   ├── php_plugin
+│   ├── MariaDB_plugin
 │   │   ├── code.py
 │   │   ├── data
 │   │   │   ├── downloads
-│   │   │   └── php.json
+│   │   │   └── MariaDB.json
 │   │   └── __init__.py
-│   └── postgresql_plugin
-│       ├── code.py
-│       ├── data
-│       │   ├── downloads
-│       │   └── postgresql.json
-│       └── __init__.py
+│   ├── PHP_plugin
+│   │   ├── code.py
+│   │   ├── data
+│   │   │   ├── downloads
+│   │   │   └── PHP.json
+│   │   └── __init__.py
+│   ├── pluginBlueprint
+│   │   ├── __init__.py
+│   │   └──pluginBlueprint.py
+│   ├── PostgreSQL_plugin
+│   │   ├── code.py
+│   │   ├── data
+│   │   │   ├── downloads
+│   │   │   └── PostgreSQL.json
+│   │   └── __init__.py
+│   └── WordPress_plugin
+│       ├── code.py
+│       ├── data
+│       │   ├── downloads
+│       │   └── WordPress.json
+│       └── __init__.py
 ├── README.md
-└── setup.py
+├── setup.py
+└── temp.py
 ```
 
 <!--- ##Contents --->
 
 ## Execution
-* The main driver python program invokes the required plugins to detect the versions for various tools and download the binary files if they are not present locally.
+* The main driver program(setup.py) invokes the all the subroutines at runtime to check for latest releases of different tools.
+* This data is then stored in the respective JSON file for each subroutine. The JSON file contains all the necessary information for the locally absent or present versions.
+* Next in line is the downloading of the locally absent subroutine binaries.
 
+Currently added subroutines are:
+* MariaDB
+* PHP
+* PostgreSQL
+* WordPress
