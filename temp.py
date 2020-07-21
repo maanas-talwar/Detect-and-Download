@@ -3,8 +3,8 @@
         Purpose: Temporary file to test scrapping
 '''
 
-from plugins.MariaDB_plugin.code import MariaDB
+from plugins.WordPress_plugin.code import WordPress
 
 if __name__ == '__main__':
-    a = MariaDB()
+    a = WordPress()
     a.check_which_released()

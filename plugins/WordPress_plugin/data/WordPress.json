@@ -1,0 +1,14 @@
+{
+    "majorVersions": [
+        {
+            "majorVersion": "5.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "5.4.2",
+                    "releaseDate": "June 10, 2020",
+                    "isDownloaded": "FALSE"
+                }
+            ]
+        }
+    ]
+}
