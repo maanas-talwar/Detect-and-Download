@@ -1,0 +1,44 @@
+{
+    "majorVersions": [
+        {
+            "majorVersion": "10.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "10.0.0-M7",
+                    "releaseDate": "2020-07-05",
+                    "isDownloaded": "TRUE"
+                }
+            ]
+        },
+        {
+            "majorVersion": "8.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "8.5.57",
+                    "releaseDate": "2020-07-05",
+                    "isDownloaded": "TRUE"
+                }
+            ]
+        },
+        {
+            "majorVersion": "9.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "9.0.37",
+                    "releaseDate": "2020-07-07",
+                    "isDownloaded": "TRUE"
+                }
+            ]
+        },
+        {
+            "majorVersion": "7.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "7.0.105",
+                    "releaseDate": "2020-07-07",
+                    "isDownloaded": "TRUE"
+                }
+            ]
+        }
+    ]
+}

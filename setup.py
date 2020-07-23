@@ -33,7 +33,9 @@ def download_releases(plugin_data, plugin_name):
 
                     # converting abstract_download_url to actual_download_url(with version number)
                     actual_download_url = abstract_download_url.replace('*', minor_version_object['minorVersion'])
-                    # since in some cases last part is not filename
+                    actual_download_url = actual_download_url.replace('!', minor_version_object['minorVersion'].split('.', 1)[0])
+                    
+                    # since in some cases last part is not filename when working with mirrors
                     break_url = actual_download_url.split('/')
                     possible_filename = [name for name in break_url if 'tar.gz' in name] + [name for name in break_url if 'tgz' in name]
                     filename = possible_filename[0]
