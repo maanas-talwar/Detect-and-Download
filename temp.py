@@ -3,8 +3,8 @@
         Purpose: Temporary file to test scrapping
 '''
 
-from plugins.WordPress_plugin.code import WordPress
+from plugins.Python_plugin.code import Python
 
 if __name__ == '__main__':
-    a = WordPress()
+    a = Python()
     a.check_which_released()

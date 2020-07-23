@@ -1,11 +1,11 @@
 {
     "majorVersions": [
         {
-            "majorVersion": "5.X",
+            "majorVersion": "3.X",
             "minorVersions": [
                 {
-                    "minorVersion": "5.4.2",
-                    "releaseDate": "June 10, 2020",
+                    "minorVersion": "3.8.5",
+                    "releaseDate": "July 20, 2020",
                     "isDownloaded": "TRUE"
                 }
             ]

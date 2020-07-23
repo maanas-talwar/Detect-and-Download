@@ -40,8 +40,8 @@ def download_releases(plugin_data, plugin_name):
                     print("Downloading to disk: " + filename)
                     data_on_url = request.urlopen(actual_download_url)
                     # downloading the file
-                    # with open(path_to_plugin_data + '/downloads/' + filename, 'wb') as download_file:
-                    #     download_file.write(data_on_url.read())
+                    with open(path_to_plugin_data + '/downloads/' + filename, 'wb') as download_file:
+                        download_file.write(data_on_url.read())
 
                     # updating data as the file is downloaded
                     minor_version_object['isDownloaded'] = 'TRUE'
