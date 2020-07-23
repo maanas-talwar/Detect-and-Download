@@ -22,26 +22,6 @@
     "repoStatus": "TRUE",
     "majorVersions": [
         {
-            "majorVersion": "7.X",
-            "minorVersions": [
-                {
-                    "minorVersion": "7.2.32",
-                    "releaseDate": "09 Jul 2020",
-                    "isDownloaded": "TRUE"
-                },
-                {
-                    "minorVersion": "7.3.20",
-                    "releaseDate": "09 Jul 2020",
-                    "isDownloaded": "TRUE"
-                },
-                {
-                    "minorVersion": "7.4.8",
-                    "releaseDate": "09 Jul 2020",
-                    "isDownloaded": "TRUE"
-                }
-            ]
-        },
-        {
             "majorVersion": "7.4.X",
             "advisory": {
                 "endOfLife": "2021-11-28",

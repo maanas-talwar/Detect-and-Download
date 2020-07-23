@@ -80,7 +80,7 @@ class PHP(abstractPlugin.pluginBlueprint):
 
         # traversing over new_releases
         for i in range(len(new_releases)):
-            major_version = new_releases[i].split('.', 1)[0] + '.X'
+            major_version = new_releases[i].rsplit('.', 1)[0] + '.X'
             minor_version = new_releases[i]
 
             # supplying the path to the json file
