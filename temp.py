@@ -3,8 +3,8 @@
         Purpose: Temporary file to test scrapping
 '''
 
-from plugins.Python_plugin.code import Python
+from plugins.ApacheHTTPServer_plugin.code import ApacheHTTPServer
 
 if __name__ == '__main__':
-    a = Python()
+    a = ApacheHTTPServer()
     a.check_which_released()

@@ -1,0 +1,14 @@
+{
+    "majorVersions": [
+        {
+            "majorVersion": "2.4.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "2.4.43",
+                    "releaseDate": "2020-04-01",
+                    "isDownloaded": "TRUE"
+                }
+            ]
+        }
+    ]
+}
