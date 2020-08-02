@@ -1,25 +1,4 @@
 {
-    "toolId": "14",
-    "toolName": "php",
-    "infoAsOn": "2020-04-30",
-    "community": "PHP.NET",
-    "communityURL": "https://secure.php.net",
-    "license": [
-        "PHP License"
-    ],
-    "functionalDomain": "Programming Language Server-side and Library",
-    "versionInformationLink": [
-        "https://www.php.net/downloads.php",
-        "https://secure.php.net/releases/",
-        "https://secure.php.net",
-        "https://secure.php.net/supported-versions.php"
-    ],
-    "stackRelevance": [
-        "php",
-        "owt"
-    ],
-    "digitalNicId": "Application Platform",
-    "repoStatus": "TRUE",
     "majorVersions": [
         {
             "majorVersion": "7.2.X",
@@ -32,98 +11,22 @@
             ]
         },
         {
-            "majorVersion": "7.4.X",
-            "advisory": {
-                "endOfLife": "2021-11-28",
-                "update": [
-                    "7.4.5"
-                ],
-                "isoImage": "",
-                "templateName": "",
-                "documents": [
-                    {
-                        "documentName": "Installation and Usage guide",
-                        "downloadURL": "http://php.net/docs.php",
-                        "docType": "application/html"
-                    }
-                ]
-            },
-            "minorVersions": [
-                {
-                    "minorVersion": "7.4.8",
-                    "releaseDate": "09 Jul 2020",
-                    "isDownloaded": "TRUE"
-                },
-                {
-                    "minorVersion": "7.4.5",
-                    "isDownloaded": "TRUE",
-                    "releaseDate": "2020-04-16",
-                    "endOfUse": "FALSE",
-                    "colourCode": "GREEN",
-                    "remark": "Recommended Version"
-                },
-                {
-                    "minorVersion": "7.4.4",
-                    "isDownloaded": "TRUE",
-                    "releaseDate": "2020-03-19",
-                    "endOfUse": "TRUE",
-                    "colourCode": "RED",
-                    "alert": "UnSupported Version",
-                    "remark": "Version Upgrade Mandatory"
-                }
-            ]
-        },
-        {
             "majorVersion": "7.3.X",
-            "advisory": {
-                "endOfLife": "2020-11-30",
-                "update": [
-                    "7.3.17"
-                ],
-                "upgrade": [
-                    "7.4.5"
-                ],
-                "isoImage": "",
-                "templateName": "",
-                "documents": [
-                    {
-                        "documentName": "Installation and Usage guide",
-                        "downloadURL": "http://php.net/docs.php",
-                        "docType": "application/html"
-                    }
-                ]
-            },
             "minorVersions": [
                 {
                     "minorVersion": "7.3.20",
                     "releaseDate": "09 Jul 2020",
                     "isDownloaded": "TRUE"
-                },
+                }
+            ]
+        },
+        {
+            "majorVersion": "7.4.X",
+            "minorVersions": [
                 {
-                    "minorVersion": "7.3.17",
-                    "isDownloaded": "TRUE",
-                    "releaseDate": "2020-04-16",
-                    "endOfUse": "FALSE",
-                    "colourCode": "AMBER",
-                    "remark": "Advisable to update to latest version"
-                },
-                {
-                    "minorVersion": "7.3.16",
-                    "isDownloaded": "TRUE",
-                    "releaseDate": "2020-03-19",
-                    "endOfUse": "TRUE",
-                    "colourCode": "RED",
-                    "alert": "UnSupported Version",
-                    "remark": "Version Upgrade Mandatory"
-                },
-                {
-                    "minorVersion": "7.3.15",
-                    "isDownloaded": "TRUE",
-                    "releaseDate": "2020-02-20",
-                    "endOfUse": "TRUE",
-                    "colourCode": "RED",
-                    "alert": "UnSupported Version",
-                    "remark": "Version Upgrade Mandatory"
+                    "minorVersion": "7.4.8",
+                    "releaseDate": "09 Jul 2020",
+                    "isDownloaded": "TRUE"
                 }
             ]
         }

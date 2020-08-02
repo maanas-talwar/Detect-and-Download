@@ -90,8 +90,8 @@ class PHP(abstractPlugin.pluginBlueprint):
 
                 # major version is present(add data to the minor versions list)
                 isMajorPresent = 0
-                for i in range(len(cur_data['majorVersions'])):
-                    major_version_object = cur_data['majorVersions'][i]
+                for k in range(len(cur_data['majorVersions'])):
+                    major_version_object = cur_data['majorVersions'][k]
 
                     if(major_version_object['majorVersion'] == major_version):
                         isMajorPresent = 1

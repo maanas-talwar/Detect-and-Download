@@ -1,0 +1,31 @@
+{
+    "majorVersions": [
+        {
+            "majorVersion": "20.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "20.04",
+                    "releaseVersionUrl": "http://rs.releases.ubuntu.com/focal/"
+                }
+            ]
+        },
+        {
+            "majorVersion": "16.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "16.04.6",
+                    "releaseVersionUrl": "http://rs.releases.ubuntu.com/xenial/"
+                }
+            ]
+        },
+        {
+            "majorVersion": "18.X",
+            "minorVersions": [
+                {
+                    "minorVersion": "18.04.4",
+                    "releaseVersionUrl": "http://rs.releases.ubuntu.com/bionic/"
+                }
+            ]
+        }
+    ]
+}

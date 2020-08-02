@@ -13,13 +13,13 @@ from bs4 import BeautifulSoup
 
 import plugins.pluginBlueprint.pluginBlueprint as abstractPlugin
 
-class ApacheHTTPServer(abstractPlugin.pluginBlueprint):
+class Ubuntu_OS(abstractPlugin.pluginBlueprint):
 
     # variable to store the url where the releases will be displayed
-    url_check_release = "https://httpd.apache.org/"
+    url_check_release = "http://rs.releases.ubuntu.com/"
 
     # variable to store the basic url(adding version required in place of *) for downloading
-    url_download = "http://apachemirror.wuchna.com//httpd/httpd-*.tar.gz"
+    url_download = "http://rs.releases.ubuntu.com/*/ubuntu-*-server-amd64.iso"
 
     def check_which_released(self):
         # to detect the name of latest released versions and return the list to update_json
@@ -28,31 +28,21 @@ class ApacheHTTPServer(abstractPlugin.pluginBlueprint):
         html_code = request.urlopen(self.url_check_release).read().decode('utf8')
         parse_tree = BeautifulSoup(html_code, 'html.parser')
 
-        # finding the contents breakup
-        contents = parse_tree.find(id = "apcontents").find_all('h1')
-        # list containing all the data including that of versions
-        data = []
-        for i in range(len(contents)):
-            data.append(contents[i].text)
+        # finding the list with version data
+        ul = parse_tree.find(class_='p-strip--image').find("ul").find_all("li")
         
-        # list containg data only of released versions ('elease' as it might be released or Release etc)
-        versions_data = [i for i in data if 'elease' in i]
+        data = [i for i in ul if "LTS" in i.text]
         
         # list to store the data to store in json
         released_versions = []
-        # list to store the release date to store in json
-        released_dates = []
-
-        for i in range(len(versions_data)):
-            if(not versions_data[i][-1].isdigit()):
-                versions_data[i] = versions_data[i][:-1]
+        # list to store the release versions urls to store in json
+        released_versions_urls = []
         
-        for i in range(len(versions_data)):
-            data = versions_data[i].split()
-            released_versions.append(data[2])
-            released_dates.append(data[-1])
+        for i in range(len(data)):
+            released_versions.append(data[i].text.split()[1])
+            released_versions_urls.append(self.url_check_release + data[i].find("a")["href"])
         
-        return released_versions, released_dates
+        return released_versions, released_versions_urls
 
     def update_json(self):
         # function that recieves the list of released versions from check_which_released and updates the json file
@@ -60,15 +50,15 @@ class ApacheHTTPServer(abstractPlugin.pluginBlueprint):
         # path to the current file's directory
         cur_path = os.path.dirname(__file__)
         # list of released versions
-        new_releases, released_dates = self.check_which_released()
+        new_releases, released_versions_urls = self.check_which_released()
 
         # traversing over new_releases
         for i in range(len(new_releases)):
-            major_version = new_releases[i].rsplit('.', 1)[0] + '.X'
+            major_version = new_releases[i].split('.', 1)[0] + '.X'
             minor_version = new_releases[i]
 
             # supplying the path to the json file
-            with open(cur_path + "/data/ApacheHTTPServer.json", 'r+') as file:
+            with open(cur_path + "/data/Ubuntu_OS.json", 'r+') as file:
                 cur_data = json.load(file)
                 # if the major version is already present add data to the minor versions list else make a separate major versions list element
 
@@ -82,8 +72,7 @@ class ApacheHTTPServer(abstractPlugin.pluginBlueprint):
                         isMinorPresent = 0
                         new_data = {
                             "minorVersion": minor_version,
-                            "releaseDate": released_dates[i],
-                            "isDownloaded": "FALSE",
+                            "releaseVersionUrl": released_versions_urls[i],
                             # "endOfUse": "FALSE",
                             # "colourCode": "GREEN",
                             # "remark": "Recommended Version"
@@ -106,8 +95,7 @@ class ApacheHTTPServer(abstractPlugin.pluginBlueprint):
                     new_data = {"majorVersion": major_version,
                                 "minorVersions": [{
                                     "minorVersion": minor_version,
-                                    "releaseDate": released_dates[i],
-                                    "isDownloaded": "FALSE",
+                                    "releaseVersionUrl": released_versions_urls[i],
                                     # "endOfUse": "FALSE",
                                     # "colourCode": "GREEN",
                                     # "remark": "Recommended Version"

@@ -32,10 +32,11 @@ def download_releases(plugin_data, plugin_name):
                 if(minor_version_object['isDownloaded'] == 'FALSE'):
 
                     # converting abstract_download_url to actual_download_url(with version number)
+                    # major version instead of ! and minor version instead of *
                     actual_download_url = abstract_download_url.replace('*', minor_version_object['minorVersion'])
                     actual_download_url = actual_download_url.replace('!', minor_version_object['minorVersion'].split('.', 1)[0])
                     
-                    # since in some cases last part is not filename when working with mirrors
+                    # since in some cases last part is not filename when working with mirrors and extensions are: tar.gz tgz
                     break_url = actual_download_url.split('/')
                     possible_filename = [name for name in break_url if 'tar.gz' in name] + [name for name in break_url if 'tgz' in name]
                     filename = possible_filename[0]
@@ -80,7 +81,11 @@ if __name__ == '__main__':
         a = class_name()
         # recieving the plugin data from the plugin call
         plugin_data = a.setup_call()
-        # passing the arguments to download the releases
-        download_releases(plugin_data, module)
+        
+        # not downloading iso for os as only url is needed
+        if(not module.endswith('_OS')):
+            # passing the arguments to download the releases
+            download_releases(plugin_data, module)
+            
 
     print('*****  End Execution  *****')
