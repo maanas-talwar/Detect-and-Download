@@ -3,8 +3,8 @@
         Purpose: Temporary file to test scrapping
 '''
 
-from plugins.Nginx_plugin.code import Nginx
+from plugins.Nodejs_plugin.code import Nodejs
 
 if __name__ == '__main__':
-    a = Nginx()
+    a = Nodejs()
     a.check_which_released()
