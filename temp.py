@@ -3,8 +3,8 @@
         Purpose: Temporary file to test scrapping
 '''
 
-from plugins.Ubuntu_OS_plugin.code import Ubuntu_OS
+from plugins.Nginx_plugin.code import Nginx
 
 if __name__ == '__main__':
-    a = Ubuntu_OS()
+    a = Nginx()
     a.check_which_released()
