@@ -9,6 +9,24 @@ A python project to **crawl the websites of different tools**, to **check for ne
 * For Python(3.8):  
 > BeautifulSoup4
 
+## Contents
+```
+.
+├── plugins
+│   ├── <tool_name>_plugin
+│   │   ├── code.py
+│   │   ├── data
+│   │   │   ├── <tool_name>.json
+│   │   │   └── downloads
+│   │   └── __init__.py
+│   ├── __init__.py
+│   └── pluginBlueprint
+│       ├── __init__.py
+│       └── pluginBlueprint.py
+├── README.md
+└── setup.py
+```
+
 ## Execution
 * To run the process, first change your directory to `Detect-and-Download/` using the following command:
 > cd Detect-and-Download/
@@ -27,21 +45,3 @@ A python project to **crawl the websites of different tools**, to **check for ne
   - WordPress
 * For operating systems, like Ubuntu, only the link to the iso webpage will be saved in `./<tool_name>/data/<tool_name>_OS.json`.
 * For other tools, the downloaded `tarball(tar.gz or .tgz)` file for the new releases can be found in `./<tool_name>/data/downloads/`.
-
-## Contents
-```
-.
-├── plugins
-│   ├── <tool_name>_plugin
-│   │   ├── code.py
-│   │   ├── data
-│   │   │   ├── <tool_name>.json
-│   │   │   └── downloads
-│   │   └── __init__.py
-│   ├── __init__.py
-│   └── pluginBlueprint
-│       ├── __init__.py
-│       └── pluginBlueprint.py
-├── README.md
-└── setup.py
-```
