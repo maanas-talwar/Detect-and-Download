@@ -13,13 +13,11 @@ A python project to **crawl the websites of different tools**, to **check for ne
 ```
 .
 ├── plugins
-│   ├── <tool_name>_plugin
-│   │   ├── code.py
-│   │   └── data
-│   │       ├── <tool_name>.json
-│   │       └── downloads
-│   └── pluginBlueprint
-│       └── pluginBlueprint.py
+│   └── <tool_name>_plugin
+│       ├── code.py
+│       └── data
+│           ├── <tool_name>.json
+│           └── downloads
 ├── README.md
 └── setup.py
 ```
