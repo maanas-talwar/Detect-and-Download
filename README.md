@@ -15,13 +15,10 @@ A python project to **crawl the websites of different tools**, to **check for ne
 ├── plugins
 │   ├── <tool_name>_plugin
 │   │   ├── code.py
-│   │   ├── data
-│   │   │   ├── <tool_name>.json
-│   │   │   └── downloads
-│   │   └── __init__.py
-│   ├── __init__.py
+│   │   └── data
+│   │       ├── <tool_name>.json
+│   │       └── downloads
 │   └── pluginBlueprint
-│       ├── __init__.py
 │       └── pluginBlueprint.py
 ├── README.md
 └── setup.py
